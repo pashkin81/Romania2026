@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>טיול לרומניה — אוגוסט 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf8f3;
+    --accent: #c44536;
+    --accent-soft: #e8b4a8;
+    --gold: #b8860b;
+    --forest: #2d4a2b;
+    --muted: #6b6b6b;
+    --line: #d4cdbf;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  .kicker {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: clamp(40px, 7vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 20px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .meta-item strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 48px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+
+  .section-title .num {
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  /* Map */
+  .map-wrap {
+    background: #f3eee2;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .map-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .map-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* Day cards */
+  .days {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .day {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--line);
+    align-items: start;
+  }
+
+  .day:last-child { border-bottom: none; }
+
+  .day-date {
+    text-align: center;
+    padding-top: 4px;
+  }
+
+  .day-date .num {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--ink);
+    display: block;
+  }
+
+  .day-date .month {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .day-date .weekday {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .day-body { padding-top: 2px; }
+
+  .day-sleep {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--forest);
+    font-weight: 500;
+    background: #e8efd9;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  .day-sleep.booked {
+    background: #d4e8f0;
+    color: #1a4a6b;
+    border: 1px solid #a0c8e0;
+  }
+
+  .booking-link {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 6px;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+
+  .booking-link:hover { border-bottom-color: var(--accent); }
+
+  .day-title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .day-details {
+    font-size: 15px;
+    color: #3a3a3a;
+    line-height: 1.65;
+  }
+
+  .day-details strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .meetup-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 10px;
+    margin-right: 6px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* Highlights box */
+  .highlights {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 32px;
+    margin: 48px 0;
+    border-radius: 4px;
+  }
+
+  .highlights h2 {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--accent-soft);
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .highlight-item {
+    border-right: 2px solid var(--accent);
+    padding-right: 14px;
+  }
+
+  .highlight-item .h-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-soft);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .highlight-item .h-value {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Map specific styles */
+  .route-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-dasharray: 6 4;
+    stroke-linecap: round;
+  }
+
+  .stop-circle {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 2;
+  }
+
+  .stop-circle-major {
+    fill: var(--accent);
+    stroke: var(--ink);
+    stroke-width: 2;
+  }
+
+  .stop-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    fill: var(--ink);
+  }
+
+  .stop-sub {
+    font-family: 'Heebo', sans-serif;
+    font-size: 10px;
+    fill: var(--muted);
+  }
+
+  .country-border {
+    fill: #ebe4d2;
+    stroke: #b8a988;
+    stroke-width: 1;
+  }
+
+  .mountains {
+    fill: none;
+    stroke: #a89578;
+    stroke-width: 0.8;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .day { grid-template-columns: 70px 1fr; gap: 16px; }
+    .day-date .num { font-size: 28px; }
+    .meta-row { gap: 16px; }
+    .highlights { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="kicker">תוכנית טיול · משפחתי</div>
+    <h1>רומניה</h1>
+    <p class="subtitle">12 לילות בין הקרפטים, הטרנספגרשאן ובוקרשט</p>
+    <div class="meta-row">
+      <div class="meta-item"><strong>19–31</strong> באוגוסט 2026</div>
+      <div class="meta-item"><strong>4</strong> נפשות</div>
+      <div class="meta-item"><strong>12</strong> לילות</div>
+      <div class="meta-item"><strong>6</strong> יעדים מרכזיים</div>
+    </div>
+  </header>
+
+  <!-- MAP -->
+  <section>
+    <h2 class="section-title"><span class="num">01</span> מפת הטיול</h2>
+    <div class="map-wrap">
+      <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
+        <!-- Romania simplified border -->
+        <path class="country-border" d="M 80,180 Q 120,140 180,150 Q 240,140 300,160 Q 380,150 460,170 Q 540,160 620,180 Q 700,200 720,260 Q 730,320 700,380 Q 660,420 580,440 Q 480,460 380,450 Q 280,460 200,440 Q 120,420 90,360 Q 70,290 80,180 Z"/>
+
+        <!-- Carpathian mountains decoration -->
+        <path class="mountains" d="M 200,250 Q 250,230 300,250 T 400,260 T 500,250 T 600,260"/>
+        <path class="mountains" d="M 220,270 Q 270,250 320,270 T 420,280 T 520,270"/>
+        <path class="mountains" d="M 280,300 Q 330,280 380,300 T 480,310"/>
+
+        <!-- Route line: Bucharest airport -> Sinaia -> Brasov -> Linistea -> Transfagarasan -> Curtea -> Bucharest -->
+        <path class="route-line" d="
+          M 540,400
+          L 460,310
+          L 410,240
+          L 290,290
+          L 300,340
+          L 360,380
+          L 540,400
+        "/>
+
+        <!-- Direction arrow markers along route -->
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(498,355) rotate(-130)"/>
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(435,270) rotate(-125)"/>
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(345,265) rotate(170)"/>
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(294,315) rotate(100)"/>
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(328,362) rotate(40)"/>
+        <polygon points="0,-4 8,0 0,4" fill="#c44536" transform="translate(450,392) rotate(8)"/>
+
+        <!-- Stops -->
+        <!-- 1. Bucharest airport (start) -->
+        <circle class="stop-circle-major" cx="540" cy="400" r="9"/>
+        <text class="stop-label" x="540" y="430" text-anchor="middle">בוקרשט</text>
+        <text class="stop-sub" x="540" y="446" text-anchor="middle">התחלה וסיום · 19 + 28-31 אוג׳</text>
+
+        <!-- 2. Sinaia -->
+        <circle class="stop-circle" cx="460" cy="310" r="6"/>
+        <text class="stop-label" x="460" y="296" text-anchor="middle">סינאיה</text>
+        <text class="stop-sub" x="460" y="284" text-anchor="middle">ארמון פלש · עצירה</text>
+
+        <!-- 3. Brasov -->
+        <circle class="stop-circle-major" cx="410" cy="240" r="9"/>
+        <text class="stop-label" x="410" y="226" text-anchor="middle">ברשוב</text>
+        <text class="stop-sub" x="410" y="214" text-anchor="middle">5 לילות · 19-24 אוג׳</text>
+
+        <!-- 4. Linistea Muntilor (Porumbacu) -->
+        <circle class="stop-circle-major" cx="290" cy="290" r="9"/>
+        <text class="stop-label" x="290" y="276" text-anchor="middle">ליניסטיה מונטילור</text>
+        <text class="stop-sub" x="290" y="264" text-anchor="middle">3 לילות עם יעל · 24-27 אוג׳</text>
+
+        <!-- 5. Transfagarasan (pass) - just label, on route -->
+        <text class="stop-sub" x="270" y="330" text-anchor="middle" style="font-style:italic; font-weight:600; fill:var(--accent);">↓ כביש הטרנספגרשאן ↓</text>
+
+        <!-- 6. Curtea de Arges -->
+        <circle class="stop-circle-major" cx="360" cy="380" r="8"/>
+        <text class="stop-label" x="360" y="402" text-anchor="middle">קורטאה דה ארג׳ש</text>
+        <text class="stop-sub" x="360" y="418" text-anchor="middle">1 לילה · 27 אוג׳</text>
+
+        <!-- Legend -->
+        <g transform="translate(60, 60)">
+          <circle class="stop-circle-major" cx="0" cy="0" r="7"/>
+          <text class="stop-sub" x="-14" y="4" text-anchor="end" style="font-size:11px;">יעד עיקרי</text>
+          <circle class="stop-circle" cx="0" cy="22" r="5"/>
+          <text class="stop-sub" x="-14" y="26" text-anchor="end" style="font-size:11px;">עצירה / לילה</text>
+          <line x1="-5" y1="44" x2="5" y2="44" stroke="#c44536" stroke-width="2.5" stroke-dasharray="4 3"/>
+          <text class="stop-sub" x="-14" y="48" text-anchor="end" style="font-size:11px;">מסלול נסיעה</text>
+        </g>
+
+      </svg>
+    </div>
+    <p class="map-caption">המסלול: בוקרשט → סינאיה → ברשוב → ליניסטיה מונטילור → טרנספגרשאן → קורטאה דה ארג׳ש → בוקרשט</p>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <h2>הנקודות החשובות</h2>
+    <div class="highlights-grid">
+      <div class="highlight-item">
+        <div class="h-label">טיסות</div>
+        <div class="h-value">19 אוג׳ 00:20 הלוך<br>31 אוג׳ 10:25 חזור</div>
+      </div>
+      <div class="highlight-item">
+        <div class="h-label">בסיס בקרפטים</div>
+        <div class="h-value">ברשוב · 5 לילות<br>20–24 באוגוסט</div>
+      </div>
+      <div class="highlight-item">
+        <div class="h-label">המפגש עם יעל</div>
+        <div class="h-value">ליניסטיה מונטילור<br>24–27 באוגוסט</div>
+      </div>
+      <div class="highlight-item">
+        <div class="h-label">היעד הציורי</div>
+        <div class="h-value">כביש הטרנספגרשאן<br>+ אגם באלאה</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY BY DAY -->
+  <section>
+    <h2 class="section-title"><span class="num">02</span> יום אחר יום</h2>
+    <div class="days">
+
+      <!-- Aug 19 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">19</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">רביעי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/cuza-16.en-gb.html" target="_blank">Cuza 16 – Central Premium Apartments</a> · ברשוב · ⭐ 9.9/10</div>
+          <div class="day-title">נחיתה ויום ראשון</div>
+          <div class="day-details">
+            נחיתה ב-03:05 בבוקרשט → איסוף רכב שכור → לינה קצרה במלון ליד שדה התעופה.
+            בוקר: נסיעה ל<strong>סינאיה</strong>, ארוחת צהריים וביקור ב<strong>ארמון פלש</strong> (להזמין מראש).
+            המשך נסיעה לברשוב, צ׳ק-אין וארוחת ערב.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 20 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">20</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">חמישי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/cuza-16.en-gb.html" target="_blank">Cuza 16 – Central Premium Apartments</a> · ברשוב · ⭐ 9.9/10</div>
+          <div class="day-title">פארק מים</div>
+          <div class="day-details">
+            יום שלם ב<strong>Aquapark Brasov</strong> — פארק המים הגדול ברומניה.
+            יום של מנוחה והנאה אחרי נסיעות היומיים הראשונים.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 21 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">21</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שישי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/cuza-16.en-gb.html" target="_blank">Cuza 16 – Central Premium Apartments</a> · ברשוב · ⭐ 9.9/10</div>
+          <div class="day-title">הרפתקה ועיר עתיקה</div>
+          <div class="day-details">
+            בוקר: <strong>Parc Aventura</strong> — מסלולי חבלים ואומגות לילדים (להגיע ב-10:00 לפתיחה).
+            ערב: <strong>טיול בעיר העתיקה של ברשוב</strong> + הכנסייה השחורה.
+            <span class="meetup-badge">מפגש עם יעל</span> מומלץ לארוחת ערב בעיר העתיקה.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 22 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">22</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שבת</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/cuza-16.en-gb.html" target="_blank">Cuza 16 – Central Premium Apartments</a> · ברשוב · ⭐ 9.9/10</div>
+          <div class="day-title">דובים וטירת דרקולה</div>
+          <div class="day-details">
+            בוקר: <strong>שמורת הדובים בזרנשטי</strong> (חובה להזמין סלוט מראש).
+            אחה״צ: <strong>טירת בראן</strong> ("טירת דרקולה") — להזמין כרטיסים מראש כדי לחסוך תור.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 23 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">23</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">ראשון</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/cuza-16.en-gb.html" target="_blank">Cuza 16 – Central Premium Apartments</a> · ברשוב · ⭐ 9.9/10</div>
+          <div class="day-title">פארק דינוזאורים ומבצר</div>
+          <div class="day-details">
+            יום משולב: <strong>Dino Park</strong> + <strong>מבצר ראשנוב</strong> באותו אזור.
+            יום משפחתי קליל עם הילדים.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 24 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">24</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שני</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
+          <div class="day-title">מעבר להרים</div>
+          <div class="day-details">
+            בוקר: <strong>רכבל פויאנה ברשוב</strong> לפסגת פוסטברו.
+            אחה״צ: נסיעה ל<strong>ליניסטיה מונטילור שאלט</strong> (כ-2.5 שעות).
+            <span class="meetup-badge">מפגש עם יעל</span> מתחילים את הימים המשותפים בשאלט.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 25 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">25</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שלישי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
+          <div class="day-title">יום עם יעל בכפר</div>
+          <div class="day-details">
+            <span class="meetup-badge">יום משותף</span>
+            יום בשאלט: בריכה, אגם, נחל, ברביקיו.
+            אופציה: ביקור ב<strong>טירת החרס</strong> (Castelul de Lut) הסמוכה. פעילות לתיאום מול יעל.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 26 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">26</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">רביעי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
+          <div class="day-title">יום נוסף בכפר</div>
+          <div class="day-details">
+            <span class="meetup-badge">יום משותף</span>
+            יום משפחות באזור הקרפטים — פעילות לתיאום עם יעל
+            (אופציות: ברמבורה פארק, חוות הדגים אלבוטה, פארק "סיפור הלוח שנה").
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 27 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">27</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">חמישי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">La Maria si Ioana</a> · Curtea de Argeș · ₪448</div>
+          <div class="day-title">כביש הטרנספגרשאן</div>
+          <div class="day-details">
+            <strong>יציאה מוקדמת מליניסטיה מונטילור</strong> — להקדים את הפקקים.
+            כניסה ל<strong>כביש הטרנספגרשאן (DN7C)</strong> מכיוון קרטישוארה — עלייה לפסגה, עצירה ב<strong>אגם באלאה</strong> (2,034 מ׳), מנהרת הפסגה, ירידה לאגם וידרארו.
+            אחה״צ: הגעה ל<strong>קורטאה דה ארג׳ש</strong> — צ׳ק-אין ב-CabanaAframe. ערב: מנוחה — יום ארוך מאחורינו.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 28 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">28</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שישי</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪1,550 (3 לילות)</div>
+          <div class="day-title">קורטאה דה ארג׳ש ← בוקרשט</div>
+          <div class="day-details">
+            בוקר: ביקור ב<strong>מנזר קורטאה דה ארג׳ש</strong> — אחד המנזרים היפים ברומניה, אתר קבורת מלכי רומניה (כ-1-2 שעות).
+            אחה״צ: נסיעה לבוקרשט (כ-2 שעות). צ׳ק-אין ב-Orhideea Residence & Spa.
+            ערב: <strong>טיול בעיר העתיקה של בוקרשט</strong> וארוחת ערב.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 29 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">29</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שבת</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪1,550 (3 לילות)</div>
+          <div class="day-title">בוקרשט — יום ראשון</div>
+          <div class="day-details">
+            יום מלא בבוקרשט: <strong>החצר הנסיכותית</strong> (קשורה לוולאד דרקולה), <strong>ארמון הפרלמנט</strong> (השני בגודלו בעולם — להזמין כרטיסים מראש), טיול ב<strong>רחוב ליפסקני</strong> וארוחת ערב בעיר העתיקה.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 30 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">30</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">ראשון</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪1,550 (3 לילות)</div>
+          <div class="day-title">בוקרשט — יום שני</div>
+          <div class="day-details">
+            בוקר: סיבוב נוסף ב<strong>עיר העתיקה</strong> (אופציה: החצר הנסיכותית — קשור לוולאד דרקולה).
+            אחה״צ: <strong>Therma Bucuresti</strong> — פארק מים גדול ליד שדה התעופה. סיום מצוין.
+          </div>
+        </div>
+      </div>
+
+      <!-- Aug 31 -->
+      <div class="day">
+        <div class="day-date">
+          <span class="num">31</span>
+          <div class="month">אוג׳</div>
+          <div class="weekday">שני</div>
+        </div>
+        <div class="day-body">
+          <div class="day-sleep">✈ טיסה חזרה</div>
+          <div class="day-title">חזרה הביתה</div>
+          <div class="day-details">
+            בוקר מוקדם: נסיעה לשדה התעופה, החזרת רכב.
+            <strong>טיסה 10:25 → נחיתה בארץ 12:55</strong>.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    יעל — ימי מפגש משותפים: <strong>21 בערב בברשוב</strong> · <strong>24–27 בליניסטיה מונטילור</strong>
+    <br><br>
+    גמיש לתיאומים נוספים — נדבר!
+  </footer>
+
+</div>
+
+</body>
+</html>
