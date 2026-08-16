@@ -245,6 +245,66 @@
     font-weight: 700;
   }
 
+  .leg {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--line);
+  }
+  .leg:last-child { border-bottom: none; padding-bottom: 0; }
+  .leg-when {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    padding-top: 2px;
+    white-space: nowrap;
+  }
+  .leg-what { font-size: 15px; line-height: 1.65; color: #3a3a3a; }
+  .leg-what strong { font-weight: 700; color: var(--ink); }
+  .leg-note { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .att {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 3px 0 8px 0;
+    padding-right: 2px;
+  }
+  .att b { color: #4a4a4a; font-weight: 600; }
+
+  .practical {
+    background: #f3f0e8;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px 20px;
+    margin: 0 0 40px 0;
+  }
+
+  .practical h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 14px 0;
+    letter-spacing: 0.02em;
+  }
+  .prac-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 20px;
+  }
+  @media (max-width: 900px) { .prac-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .prac-grid { grid-template-columns: 1fr; } }
+  .prac-item { font-size: 12.5px; line-height: 1.5; color: #4a4a4a; }
+
+  .prac-item .t {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
   .meetup-badge {
     display: inline-block;
     background: var(--accent);
@@ -261,81 +321,91 @@
   .highlights {
     background: var(--ink);
     color: var(--paper);
-    padding: 36px 32px;
-    margin: 48px 0;
-    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 32px 0 20px;
+    border-radius: 8px;
   }
 
   .highlights h2 {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    margin-bottom: 14px;
     font-weight: 700;
     color: var(--accent-soft);
   }
 
   .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
   }
+  @media (max-width: 700px) { .highlights-grid { grid-template-columns: repeat(2, 1fr); } }
 
   .highlight-item {
     border-right: 2px solid var(--accent);
-    padding-right: 14px;
+    padding-right: 10px;
   }
 
   .highlight-item .h-label {
-    font-size: 11px;
-    letter-spacing: 0.2em;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     color: var(--accent-soft);
-    margin-bottom: 6px;
+    margin-bottom: 3px;
     text-transform: uppercase;
   }
 
   .highlight-item .h-value {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 18px;
+    font-size: 13.5px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.35;
   }
 
+
+  .hotel-info {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hotel-info span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
   /* Pre-booking checklist */
   .prebooking {
     background: #fff8f0;
-    border: 2px solid var(--accent);
-    border-radius: 12px;
-    padding: 28px 32px;
-    margin: 32px 0;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 0 0 32px;
   }
 
   .prebooking h2 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--accent);
-    margin: 0 0 20px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    margin: 0 0 12px 0;
   }
 
   .prebooking-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 7px;
   }
 
   .prebooking-list li {
     display: grid;
-    grid-template-columns: 80px 1fr auto;
-    align-items: start;
-    gap: 12px;
-    padding-bottom: 12px;
+    grid-template-columns: 58px 1fr auto;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 7px;
     border-bottom: 1px solid #f0ddd0;
-    font-size: 15px;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .prebooking-list li:last-child {
@@ -343,22 +413,14 @@
     padding-bottom: 0;
   }
 
-  .pb-date {
-    font-weight: 700;
-    color: var(--accent);
-    font-size: 14px;
-    padding-top: 2px;
-  }
+  .pb-date { font-weight: 700; color: var(--accent); font-size: 12px; }
 
   .pb-item { color: var(--ink); line-height: 1.4; }
   .pb-item strong { font-weight: 700; }
 
   .pb-status {
-    font-size: 12px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
+    font-size: 10.5px; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px; white-space: nowrap;
   }
 
   .pb-done { background: #d4f0d4; color: #1a6b1a; }
@@ -426,7 +488,7 @@
     .day { grid-template-columns: 70px 1fr; gap: 16px; }
     .day-date .num { font-size: 28px; }
     .meta-row { gap: 16px; }
-    .highlights { padding: 24px 20px; }
+    .highlights { padding: 16px 18px; }
   }
 </style>
 </head>
@@ -446,6 +508,7 @@
       <div class="meta-item"><strong>6</strong> יעדים מרכזיים</div>
     </div>
   </header>
+
 
   <!-- MAP -->
   <section>
@@ -518,7 +581,7 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
           <div style="background:white;border-radius:8px;padding:4px 10px;white-space:nowrap;box-shadow:0 2px 6px #0002;text-align:center;">
             <div style="font-weight:800;font-size:13px;color:#1a1a1a;font-family:Arial,sans-serif;">ליניסטיה מונטילור</div>
-            <div style="font-size:10px;color:#666;font-family:Arial,sans-serif;">3 לילות עם יעל · 24–27 אוג׳</div>
+            <div style="font-size:10px;color:#666;font-family:Arial,sans-serif;">3 לילות · 24–27 אוג׳</div>
           </div>
           <div style="width:16px;height:16px;background:#c44536;border:2.5px solid white;border-radius:50%;box-shadow:0 2px 5px #0003;"></div>
         </div>
@@ -572,13 +635,27 @@
         <div class="h-value">ברשוב · 5 לילות<br>19–24 באוגוסט</div>
       </div>
       <div class="highlight-item">
-        <div class="h-label">המפגש עם יעל</div>
-        <div class="h-value">ליניסטיה מונטילור<br>24–27 באוגוסט</div>
+        <div class="h-label">הרכב</div>
+        <div class="h-value">Toyota Corolla Cross<br>Alamo · 19–31 באוגוסט</div>
       </div>
       <div class="highlight-item">
         <div class="h-label">היעד הציורי</div>
         <div class="h-value">כביש הטרנספגרשאן<br>+ אגם באלאה</div>
       </div>
+    </div>
+  </section>
+  <!-- PRACTICAL INFO -->
+  <section class="practical">
+    <h2>🧭 מידע מעשי</h2>
+    <div class="prac-grid">
+      <div class="prac-item"><span class="t">🛣 רוביניטה</span>אגרת כביש חובה, נאכפת במצלמות. <b>תוודא ב-Alamo שכלולה.</b> אחרת — כל תחנת דלק, ~3€.</div>
+      <div class="prac-item"><span class="t">⛽ דלק בטרנספגרשאן</span>אין תחנה לאורך 100 ק״מ. תדלוק מלא באבריג / קרטישוארה לפני העלייה.</div>
+      <div class="prac-item"><span class="t">💰 מטבע</span>לאו רומני (RON), <b>לא יורו</b>. אשראי כמעט בכל מקום, מזומן לחניה ואטרקציות קטנות.</div>
+      <div class="prac-item"><span class="t">🚨 חירום</span><b>112</b> — משטרה, מד״א, כיבוי. אנגלית זמינה.</div>
+      <div class="prac-item"><span class="t">🚗 נהיגה</span>אורות ביום מחוץ ליישוב · <b>אפס אלכוהול</b> · 50 / 90 / 130 קמ״ש.</div>
+      <div class="prac-item"><span class="t">⛰ מזג אוויר</span>סופות רעמים אחה״צ שכיחות בקרפטים באוגוסט. פעילויות חוץ — בבוקר.</div>
+      <div class="prac-item"><span class="t">🧥 באלאה 2,034 מ׳</span>יכול להיות 10°C למעלה כשלמטה 30°C. שכבה לכל אחד.</div>
+      <div class="prac-item"><span class="t">✈ טיסה חזרה</span>31 אוג׳ 10:25. יציאה מבוקרשט <b>06:15</b> — שעת עומס + החזרת רכב. תדלק בערב.</div>
     </div>
   </section>
 
@@ -588,18 +665,13 @@
     <ul class="prebooking-list">
       <li>
         <span class="pb-date">19 אוג׳</span>
-        <span class="pb-item"><strong>ארמון פלש, סינאיה</strong> — כרטיסים מוכרחים מראש, תורים ארוכים בלעדיהם</span>
-        <span class="pb-status pb-todo">טרם הוזמן</span>
-      </li>
-      <li>
-        <span class="pb-date">20 אוג׳</span>
-        <span class="pb-item"><strong>Aquapark Brașov</strong> — כדאי לקנות כרטיסים מראש באוגוסט</span>
-        <span class="pb-status pb-todo">טרם הוזמן</span>
+        <span class="pb-item"><strong>ארמון פלש, סינאיה</strong> — חלון 14:30–16:00 · קומת קרקע + קומה 1 · כרטיסים לא ניתנים להחזר</span>
+        <span class="pb-status pb-done">✅ הוזמן</span>
       </li>
       <li>
         <span class="pb-date">22 אוג׳</span>
-        <span class="pb-item"><strong>שמורת הדובים, זרנשטי (Libearty)</strong> — חובה להזמין סלוט ביקור מראש באתר</span>
-        <span class="pb-status pb-todo">טרם הוזמן</span>
+        <span class="pb-item"><strong>שמורת הדובים, זרנשטי (Libearty)</strong> — 11:00 · סיור אנגלית · 4 כרטיסים · 310 lei</span>
+        <span class="pb-status pb-done">✅ הוזמן</span>
       </li>
       <li>
         <span class="pb-date">22 אוג׳</span>
@@ -611,7 +683,17 @@
         <span class="pb-item"><strong>ארמון הפרלמנט, בוקרשט</strong> — כרטיסים + סיור מודרך חובה מראש</span>
         <span class="pb-status pb-todo">טרם הוזמן</span>
       </li>
+      <li>
+        <span class="pb-date">30 אוג׳</span>
+        <span class="pb-item"><strong>Therme București</strong> — אזור Galaxy · יום ראשון, כרטיסים נגמרים · להזמין אונליין</span>
+        <span class="pb-status pb-todo">טרם הוזמן</span>
+      </li>
     </ul>
+    <p style="margin-top:18px; padding-top:14px; border-top:1px solid #f0ddd0; font-size:14px;">
+      📁 כל הכרטיסים והאישורים שמורים כאן:
+      <a href="https://drive.google.com/drive/folders/1vGGxdHZm4SqBQQnwPnbBd7VlGr476N1E" target="_blank"
+         style="color:var(--accent); font-weight:700;">תיקיית Google Drive</a>
+    </p>
   </section>
 
   <!-- DAY BY DAY -->
@@ -627,12 +709,57 @@
           <div class="weekday">רביעי</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Central Premium Apartment</a> · Ion Marinescu 17, ברשוב · ⭐ 9.7/10</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Ylly Aparts</a> · ברשוב · ⭐ 9.7/10</div>
+          <div class="hotel-info"><span>📍 Strada Cibinului 23, Brașov</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 769 222 700</span></span></div>
           <div class="day-title">נחיתה ויום ראשון</div>
           <div class="day-details">
-            טיסה יוצאת <strong>00:20</strong> — נחיתה בבוקרשט <strong>03:05</strong>. איסוף <strong>Toyota Corolla Cross</strong> (Alamo) ונסיעה קצרה (6 דקות) ל<strong>Hotel Charter Otopeni</strong> לכמה שעות שינה.
-            בוקר: נסיעה ל<strong>סינאיה</strong>, ארוחת צהריים וביקור ב<strong>ארמון פלש</strong> (להזמין מראש).
-            המשך נסיעה לברשוב, צ׳ק-אין וארוחת ערב.
+
+            <div class="leg">
+              <div class="leg-when">00:20</div>
+              <div class="leg-what">המראה מנתב״ג · טיסה <strong>LY9491</strong></div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">03:05</div>
+              <div class="leg-what">נחיתה בבוקרשט. איסוף <strong>Toyota Corolla Cross</strong> — Alamo
+                <span class="leg-note">📍 224E Calea Bucurestilor · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40722699793</span><br>
+                מ-International Arrivals: ימינה לעבר Departures, אותה קומה, Rent-a-Car ~50 מטר</span>
+              </div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">~04:00</div>
+              <div class="leg-what">נסיעה 6 דקות ל<strong>Hotel Charter Otopeni</strong> — שינה
+                <span class="leg-note">📍 Strada Odăii 1D, Otopeni · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 728 926 819</span> · צ׳ק-אאוט עד 12:00</span>
+              </div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">12:00</div>
+              <div class="leg-what">יציאה ל<strong>סינאיה</strong> (כשעה ורבע) · ארוחת צהריים</div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">14:30</div>
+              <div class="leg-what"><strong>ארמון פלש</strong>
+                <span class="leg-note">✅ הוזמן · חלון 14:30–16:00 · קומת קרקע + קומה 1 · כרטיסים לא ניתנים להחזר</span>
+              </div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">19:00</div>
+              <div class="leg-what">טיול <strong>רייזרים ב-Predeal</strong> 🏁 · שעה וחצי
+                <span class="leg-note">📍 Tudor Vladimirescu 22, Predeal (ATV Predeal) · שקיעה ב-21:00</span>
+              </div>
+            </div>
+
+            <div class="leg">
+              <div class="leg-when">~21:00</div>
+              <div class="leg-what">הגעה לברשוב · צ׳ק-אין ב-<strong>Ylly Aparts</strong>
+                <span class="leg-note">✅ צ׳ק-אין מאוחר אושר: 22:00–23:00</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -645,11 +772,13 @@
           <div class="weekday">חמישי</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Central Premium Apartment</a> · Ion Marinescu 17, ברשוב · ⭐ 9.7/10</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Ylly Aparts</a> · ברשוב · ⭐ 9.7/10</div>
+          <div class="hotel-info"><span>📍 Strada Cibinului 23, Brașov</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 769 222 700</span></span></div>
           <div class="day-title">פארק מים</div>
           <div class="day-details">
-            יום שלם ב<strong>Aquapark Brasov</strong> — פארק המים הגדול ברומניה.
-            יום של מנוחה והנאה אחרי נסיעות היומיים הראשונים.
+            יום שלם ב<strong>Paradisul Acvatic</strong> — מתחם הבריכות הגדול ברומניה, בריכות פנים וחוץ, מגלשות, סאונות.
+            <span class="att">📍 Bulevardul Griviței 2F, Brașov · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 268 440 070</span></span>
+            <span class="att">💳 אין הזמנה אונליין — משלמים בכניסה, מזומן או כרטיס אשראי.</span>
           </div>
         </div>
       </div>
@@ -662,12 +791,13 @@
           <div class="weekday">שישי</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Central Premium Apartment</a> · Ion Marinescu 17, ברשוב · ⭐ 9.7/10</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Ylly Aparts</a> · ברשוב · ⭐ 9.7/10</div>
+          <div class="hotel-info"><span>📍 Strada Cibinului 23, Brașov</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 769 222 700</span></span></div>
           <div class="day-title">הרפתקה ועיר עתיקה</div>
           <div class="day-details">
-            בוקר: <strong>Parc Aventura</strong> — מסלולי חבלים ואומגות לילדים (להגיע ב-10:00 לפתיחה).
-            ערב: <strong>טיול בעיר העתיקה של ברשוב</strong> + הכנסייה השחורה.
-            <span class="meetup-badge">מפגש עם יעל</span> מומלץ לארוחת ערב בעיר העתיקה.
+            בוקר: <strong>Parc Aventura</strong> — מסלולי חבלים ואומגות לילדים. פתוח 10:00–19:00, כרטיס לשעתיים.
+            <span class="att">📍 Strada Paltinului 16, Brașov · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 755 085 555</span></span>
+            ערב: <strong>טיול בעיר העתיקה של ברשוב</strong> + הכנסייה השחורה וארוחת ערב.
           </div>
         </div>
       </div>
@@ -680,11 +810,15 @@
           <div class="weekday">שבת</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Central Premium Apartment</a> · Ion Marinescu 17, ברשוב · ⭐ 9.7/10</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Ylly Aparts</a> · ברשוב · ⭐ 9.7/10</div>
+          <div class="hotel-info"><span>📍 Strada Cibinului 23, Brașov</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 769 222 700</span></span></div>
           <div class="day-title">דובים וטירת דרקולה</div>
           <div class="day-details">
-            בוקר: <strong>שמורת הדובים בזרנשטי</strong> (חובה להזמין סלוט מראש).
-            אחה״צ: <strong>טירת בראן</strong> ("טירת דרקולה") — להזמין כרטיסים מראש כדי לחסוך תור.
+            בוקר 11:00: <strong>שמורת הדובים (Libearty) ✅ הוזמן</strong> — סיור אנגלית, 4 כרטיסים, 310 lei.
+            <span class="att">📍 Zărnești (2 ק״מ אחרונים דרך עפר) · חניה חינם · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 731 334 791</span></span>
+            <span class="att">⏰ הסיור ב-11:00 הוא <b>האחרון של היום</b> — אין מרווח לאיחור.</span>
+            אחה״צ: <strong>טירת בראן</strong> ("טירת דרקולה"). פתוח 09:00–19:00.
+            <span class="att">📍 Strada General Traian Moșoiu 24, Bran · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 268 237 700</span></span>
           </div>
         </div>
       </div>
@@ -697,11 +831,14 @@
           <div class="weekday">ראשון</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Central Premium Apartment</a> · Ion Marinescu 17, ברשוב · ⭐ 9.7/10</div>
-          <div class="day-title">פארק דינוזאורים ומבצר</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/apartamente-rodiva-01.en-gb.html" target="_blank">Ylly Aparts</a> · ברשוב · ⭐ 9.7/10</div>
+          <div class="hotel-info"><span>📍 Strada Cibinului 23, Brașov</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 769 222 700</span></span></div>
+          <div class="day-title">יום קניות ברשוב 🛍️</div>
           <div class="day-details">
-            יום משולב: <strong>Dino Park</strong> + <strong>מבצר ראשנוב</strong> באותו אזור.
-            יום משפחתי קליל עם הילדים.
+            יום קניות ומנוחה בברשוב — <strong>Coresi Shopping Resort</strong>, 130 חנויות + היפרמרקט Auchan. פתוח 10:00–22:00.
+            <span class="att">📍 Strada Zaharia Stancu 1, Brașov · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 736 738 787</span></span>
+            <span class="att">🕙 יום ראשון = עמוס. הגיעו עם הפתיחה ב-10:00.</span>
+            אחה״צ: העיר העתיקה. יום רגוע לפני המעבר לליניסטיה מחר.
           </div>
         </div>
       </div>
@@ -715,11 +852,13 @@
         </div>
         <div class="day-body">
           <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
+          <div class="hotel-info"><span>📍 Principală Nr. 176, Porumbacu de Sus</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 723 821 777</span></span></div>
           <div class="day-title">מעבר להרים</div>
           <div class="day-details">
-            בוקר: <strong>רכבל פויאנה ברשוב</strong> לפסגת פוסטברו.
+            בוקר: צ׳ק-אאוט, ואז <strong>רכבל פויאנה ברשוב</strong> (Telegondola Postăvaru) לפסגת פוסטברו — עם המזוודות כבר ברכב.
+            <span class="att">📍 Poiana Brașov</span>
+            <span class="att">💨 הרכבל נעצר ברוח חזקה — תוכנית חלופית ליום הזה לא תזיק.</span>
             אחה״צ: נסיעה ל<strong>ליניסטיה מונטילור שאלט</strong> (כ-2.5 שעות).
-            <span class="meetup-badge">מפגש עם יעל</span> מתחילים את הימים המשותפים בשאלט.
           </div>
         </div>
       </div>
@@ -733,11 +872,13 @@
         </div>
         <div class="day-body">
           <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
-          <div class="day-title">יום עם יעל בכפר</div>
+          <div class="hotel-info"><span>📍 Principală Nr. 176, Porumbacu de Sus</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 723 821 777</span></span></div>
+          <div class="day-title">יום בכפר</div>
           <div class="day-details">
-            <span class="meetup-badge">יום משותף</span>
-            יום בשאלט: בריכה, אגם, נחל, ברביקיו.
-            אופציה: ביקור ב<strong>טירת החרס</strong> (Castelul de Lut) הסמוכה. פעילות לתיאום מול יעל.
+                        יום בשאלט: בריכה, אגם, נחל, ברביקיו.
+            אופציה: <strong>טירת החרס</strong> (Castelul de Lut) — 10 דקות נסיעה.
+            <span class="att">📍 Porumbacu de Sus Nr. 630</span>
+            <span class="att">⚠️ מבקרים אחרונים דיווחו שהאתר <b>סגור לביקורי חוץ</b> — כניסה רק לאורחים שמתאכסנים או מזמינים במסעדה. <b>תתקשר לפני שאתה נוסע.</b></span>
           </div>
         </div>
       </div>
@@ -751,10 +892,10 @@
         </div>
         <div class="day-body">
           <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com/hotel/ro/tranquillity-of-the-mountains-chalet.en-gb.html" target="_blank">Linistea Muntilor Chalet</a> · Porumbacu de Sus · ⭐ 10/10</div>
+          <div class="hotel-info"><span>📍 Principală Nr. 176, Porumbacu de Sus</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 723 821 777</span></span></div>
           <div class="day-title">יום נוסף בכפר</div>
           <div class="day-details">
-            <span class="meetup-badge">יום משותף</span>
-            יום משפחות באזור הקרפטים — פעילות לתיאום עם יעל
+                        יום באזור הקרפטים
             (אופציות: ברמבורה פארק, חוות הדגים אלבוטה, פארק "סיפור הלוח שנה").
           </div>
         </div>
@@ -768,11 +909,15 @@
           <div class="weekday">חמישי</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">La Maria si Ioana</a> · Curtea de Argeș · ₪454</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">La Maria si Ioana</a> · Curtea de Argeș · ₪457</div>
+          <div class="hotel-info"><span>📍 Strada Anghelești Nr.11, Curtea de Argeș</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 748 193 085</span></span></div>
           <div class="day-title">כביש הטרנספגרשאן</div>
           <div class="day-details">
-            <strong>יציאה מוקדמת מליניסטיה מונטילור</strong> — להקדים את הפקקים.
+            <span class="att">⛽ <b>תדלוק מלא לפני העלייה</b> — אין אף תחנת דלק לאורך 100 ק״מ של הטרנספגרשאן. התחנה האחרונה: אבריג / קרטישוארה.</span>
+            <span class="att">🧥 באלאה על 2,034 מ׳ — יכול להיות 10°C למעלה כשלמטה 30°C. קחו שכבה לכל אחד.</span>
+            <strong>יציאה מוקדמת (07:00) מליניסטיה מונטילור</strong> — להקדים את הפקקים.
             כניסה ל<strong>כביש הטרנספגרשאן (DN7C)</strong> מכיוון קרטישוארה — עלייה לפסגה, עצירה ב<strong>אגם באלאה</strong> (2,034 מ׳), מנהרת הפסגה, ירידה לאגם וידרארו.
+            בדרך למטה: עצירת צילום ב<strong>סכר וידרארו</strong> — אחד הסכרים הגדולים ברומניה, 15 דקות.
             אחה״צ: הגעה ל<strong>קורטאה דה ארג׳ש</strong> — צ׳ק-אין ב-La Maria si Ioana. ערב: מנוחה — יום ארוך מאחורינו.
           </div>
         </div>
@@ -786,10 +931,13 @@
           <div class="weekday">שישי</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,554 (3 לילות)</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,573 (3 לילות)</div>
+          <div class="hotel-info"><span>📍 Calea Plevnei 145b, București</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 740 120 193</span></span></div>
           <div class="day-title">קורטאה דה ארג׳ש ← בוקרשט</div>
           <div class="day-details">
-            בוקר: ביקור ב<strong>מנזר קורטאה דה ארג׳ש</strong> — אחד המנזרים היפים ברומניה, אתר קבורת מלכי רומניה (כ-1-2 שעות).
+            בוקר: ביקור ב<strong>מנזר קורטאה דה ארג׳ש</strong> — אתר קבורת מלכי רומניה. פתוח 08:00–20:00.
+            <span class="att">📍 Bulevardul Basarabilor 1, Curtea de Argeș · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 755 043 718</span></span>
+            <span class="att">⚠️ המנזר <b>בשיפוצים</b> ומכוסה בפיגומים — מבקרים דווחו שלא הורשו להיכנס. <b>תתקשר לפני.</b> זו הסיבה היחידה לעצירה כאן.</span>
             אחה״צ: נסיעה לבוקרשט (כ-2 שעות). צ׳ק-אין ב-Orhideea Residence & Spa.
             ערב: <strong>טיול בעיר העתיקה של בוקרשט</strong> וארוחת ערב.
           </div>
@@ -804,10 +952,13 @@
           <div class="weekday">שבת</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,554 (3 לילות)</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,573 (3 לילות)</div>
+          <div class="hotel-info"><span>📍 Calea Plevnei 145b, București</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 740 120 193</span></span></div>
           <div class="day-title">בוקרשט — יום ראשון</div>
           <div class="day-details">
-            יום מלא בבוקרשט: <strong>החצר הנסיכותית</strong> (קשורה לוולאד דרקולה), <strong>ארמון הפרלמנט</strong> (השני בגודלו בעולם — להזמין כרטיסים מראש), טיול ב<strong>רחוב ליפסקני</strong> וארוחת ערב בעיר העתיקה.
+            יום מלא בבוקרשט: <strong>החצר הנסיכותית</strong> (קשורה לוולאד דרקולה), <strong>ארמון הפרלמנט</strong> (השני בגודלו בעולם) — כניסה רק בסיור מודרך, להזמין מראש
+            <span class="att">📍 Strada Izvor 2-4, București · 📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 733 558 102</span></span>
+            <span class="att">🛂 <b>חובה דרכון בכניסה</b> לכל אחד מהמשפחה — בלי זה לא נכנסים.</span>, טיול ב<strong>רחוב ליפסקני</strong> וארוחת ערב בעיר העתיקה.
           </div>
         </div>
       </div>
@@ -820,11 +971,14 @@
           <div class="weekday">ראשון</div>
         </div>
         <div class="day-body">
-          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,554 (3 לילות)</div>
+          <div class="day-sleep booked">✅ לינה: <a class="booking-link" href="https://www.booking.com" target="_blank">Orhideea Residence & Spa</a> · בוקרשט · ₪2,573 (3 לילות)</div>
+          <div class="hotel-info"><span>📍 Calea Plevnei 145b, București</span><span>📞 <span dir="ltr" style="unicode-bidi:isolate;">+40 740 120 193</span></span></div>
           <div class="day-title">בוקרשט — יום שני</div>
           <div class="day-details">
             בוקר: סיבוב נוסף ב<strong>עיר העתיקה</strong> (אופציה: החצר הנסיכותית — קשור לוולאד דרקולה).
-            אחה״צ: <strong>Therma Bucuresti</strong> — פארק מים גדול ליד שדה התעופה. סיום מצוין.
+            אחה״צ: <strong>Therme București</strong> — המתחם התרמי הגדול באירופה, ליד שדה התעופה. פתוח 09:00–24:00.
+            <span class="att">📍 Calea București 1K, Balotești</span>
+            <span class="att">🎟️ שלושה אזורים — <b>Galaxy</b> הוא זה עם המגלשות לילדים. יום ראשון = עמוס, להזמין כרטיסים אונליין מראש.</span>
           </div>
         </div>
       </div>
@@ -841,7 +995,7 @@
           <div class="day-title">חזרה הביתה</div>
           <div class="day-details">
             בוקר מוקדם: נסיעה לשדה התעופה, החזרת רכב.
-            <strong>טיסה 10:25 → נחיתה בארץ 12:55</strong>.
+            <strong>טיסה <strong>LY574</strong> 10:25 → נחיתה בארץ 12:55</strong>.
           </div>
         </div>
       </div>
@@ -849,12 +1003,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    יעל — ימי מפגש משותפים: <strong>21 בערב בברשוב</strong> · <strong>24–27 בליניסטיה מונטילור</strong>
-    <br><br>
-    גמיש לתיאומים נוספים — נדבר!
-  </footer>
+
 
 </div>
 
